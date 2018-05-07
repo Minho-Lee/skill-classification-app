@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>vis 4</title>
+  
+
+  
+  
+  
+</head>
+
+<body>
+
+  <head>
+
+  <!-- Plotly.js -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+
+<body>
+	  Chat Visualizer - Depth 2
+
+    <select onchange="updateChart(this);">
+  <option value="Watson">Watson</option>
+  <option value="iaas">Iaas</option>
+</select>
+
+
+ <!--  <%= employeeData  %> -->
+  <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
+  <script>
+  </script>
+</body>
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js " integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=" anonymous "></script>
+
+<script>
+  var employeeData = <%- JSON.stringify(employeeData) %>;
+  var totalEmployees = <%- JSON.stringify(totalEmployees) %>;
+
+  console.log("totalEmployees " +totalEmployees);
+  </script>
+    <script  src="js/visualize4.js"></script>
+
+
+
+</body>
+
+</html>
