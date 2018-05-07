@@ -42,39 +42,8 @@
 				<span class='ml-auto navbar-text'>Text</span>
 			</div>
 		</nav> -->
-		<div class="container-fluid">
-			<div class='d-flex justify-content-center my-3'>
-				<h1>Survey App</h1>
-			</div>
-
-			<h2>AI</h2>
-
-			<form id='myForm'>
-				<!-- <div class='d-flex flex-row justify-content-around'> -->
-				<div class='row align-items-end'>
-					<!-- Discovery -->
-					<div class='form-group col-lg'>
-						<label for='watsonDiscovery'>How proficient are you in Watson Discovery?</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="discovery">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="discovery" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="discovery">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div>
-						</div>
-					</div><!-- Watson Discovery -->
-					<!-- Random -->
-					<div class='form-group col-lg'>
-						<label for='watsonConversation'>How proficient are you in Watson Conversation?</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
+		<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
+						<!-- <div class="input-group plus-minus-input">
 							<div class="input-group-button">
 								<button type="button" class="button hollow circle" data-quantity="minus" data-field="conversation">
 									<i class="fa fa-minus" aria-hidden="true"></i>
@@ -86,243 +55,148 @@
 									<i class="fa fa-plus" aria-hidden="true"></i>
 								</button>
 							</div>
-						</div>
-					</div><!-- Watson Conversation -->
-					<!-- Watson Tone Analyzer -->
-					<div class='form-group col-lg'>
-						<label for='watsonToneAnalyzer'>How proficient are you in Watson Tone Analyzer?</label>
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="tone_analyzer">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="tone_analyzer" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="tone_analyzer">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div>
-						</div>
-					</div><!-- Watson Tone Analyzer -->
-				</div><!-- d-flex -->
+						</div> -->
+		<div class="container-fluid">
+			<div class='d-flex justify-content-center my-3'>
+				<h1>Skill Classification Survey</h1>
+			</div>
 
-				<h2>Cloud</h2>
-
+			
+			<form id='myForm'>
+				<div class='row mt-2 mb-4 ml-2'>
+					<h5>Please rate yourself on the following IaaS skills on a scale from 1 to 5 (with 5 being proficient)...</h5>
+				</div>
 				<!-- <div class='d-flex flex-row justify-content-around'> -->
 				<div class='row align-items-end'>
+					<!-- Isolated Virtual Network -->
 					<div class='form-group col-lg'>
-						<label for='virtual-compute'>How proficient are you in Virtual Compute?</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="virtual_compute">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
+						<label for='isolated-virtual-network'>Isolated Virtual Network</label>
+						<div class='slider-container'>
+							<input name='isolated_virtual_network' type='range' min='1' max='100' value='8' class='slider' />
+							<div class='mt-2 number-label-group'>
+								<div class='one number-label active' >1</div>
+								<div class='two number-label' >2</div>
+								<div class='three number-label' >3</div>
+								<div class='four number-label' >4</div>
+								<div class='five number-label' >5</div>
 							</div>
-							<input class="input-group-field" type="number" name="virtual_compute" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="virtual_compute">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
+						</div>
+					</div>
+					<!-- Random -->
+					<div class='form-group col-lg'>
+						<label for='virtual-machines'>Virtual Machines</label>
+						
+						<div class='slider-container'>
+							<input name='virtual_machines' type='range' min='1' max='100' value='8' class='slider' />
+							<div class='mt-2 number-label-group'>
+								<div class='one number-label active' >1</div>
+								<div class='two number-label' >2</div>
+								<div class='three number-label' >3</div>
+								<div class='four number-label' >4</div>
+								<div class='five number-label' >5</div>
 							</div>
 						</div>
 					</div>
 
-					<div class='form-group col-lg'>
-						<label for='virtual-compute'>VM?</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="vm">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="vm" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="vm">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div>
-						</div>
-					</div><!-- VM -->
-
 					<div class='w-100'></div>
+
 					<!-- Bare Metal -->
 					<div class='form-group col-lg'>
-						<label for='virtual-compute'>Bare Metal?</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="bare_metal">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="bare_metal" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="bare_metal">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
+						<label for='bare-metal'>Bare Metal</label>
+						<div class='slider-container'>
+							<input name='bare_metal' type='range' min='1' max='100' value='8' class='slider' />
+							<div class='mt-2 number-label-group'>
+								<div class='one number-label active' >1</div>
+								<div class='two number-label' >2</div>
+								<div class='three number-label' >3</div>
+								<div class='four number-label' >4</div>
+								<div class='five number-label' >5</div>
 							</div>
 						</div>
-					</div> <!-- Bare Metal-->
+					</div>
 
+					<!-- Load Balancing -->
 					<div class='form-group col-lg'>
-						<!-- VMWare -->
-						<label for='virtual-compute'>VMWare?</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="vmware">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="vmware" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="vmware">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
+						<label for='load-balancing'>Load Balancing</label>
+						<div class='slider-container'>
+							<input name='conversation' type='range' min='1' max='100' value='8' class='slider' />
+							<div class='mt-2 number-label-group'>
+								<div class='one number-label active' >1</div>
+								<div class='two number-label' >2</div>
+								<div class='three number-label' >3</div>
+								<div class='four number-label' >4</div>
+								<div class='five number-label' >5</div>
 							</div>
 						</div>
-					</div><!-- VMWare -->
-				</div><!-- d-flex -->
-
+					</div>
+				</div><!-- row -->
 
 				<!-- <div class='d-flex flex-row justify-content-around'> -->
 				<div class='row align-items-end'>
-					<!-- Virtual Storage -->
+					<!-- Firewalls -->
 					<div class='form-group col-lg'>
-						<label for='virtual-storage'>How proficient are you in Virtual Storage?</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="virtual_storage">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="virtual_storage" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="virtual_storage">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
+						<label for='firewalls'>Firewalls</label>
+						<div class='slider-container'>
+							<input name='firewalls' type='range' min='1' max='100' value='8' class='slider' />
+							<div class='mt-2 number-label-group'>
+								<div class='one number-label active' >1</div>
+								<div class='two number-label' >2</div>
+								<div class='three number-label' >3</div>
+								<div class='four number-label' >4</div>
+								<div class='five number-label' >5</div>
 							</div>
 						</div>
-					</div><!-- Virtual Storage -->
+					</div>
 
+					<!-- Block Storage -->
 					<div class='form-group col-lg'>
-						<label for='virtual-storage'>Block</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="block">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="block" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="block">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
+						<label for='block-storage'>Block Storage</label>
+						<div class='slider-container'>
+							<input name='block_storage' type='range' min='1' max='100' value='8' class='slider' />
+							<div class='mt-2 number-label-group'>
+								<div class='one number-label active' >1</div>
+								<div class='two number-label' >2</div>
+								<div class='three number-label' >3</div>
+								<div class='four number-label' >4</div>
+								<div class='five number-label' >5</div>
 							</div>
 						</div>
-					</div><!-- Block -->
+					</div>
 
 					<div class='w-100'></div>
+					<!-- Fire Storage -->
+					<div class='form-group col-lg'>
+						<label for='fire-storage'>Fire Storage</label>
+						<div class='slider-container'>
+							<input name='fire_storage' type='range' min='1' max='100' value='8' class='slider' />
+							<div class='mt-2 number-label-group'>
+								<div class='one number-label active' >1</div>
+								<div class='two number-label' >2</div>
+								<div class='three number-label' >3</div>
+								<div class='four number-label' >4</div>
+								<div class='five number-label' >5</div>
+							</div>
+						</div>
+					</div>
 
-					<!-- Object -->
+					<!-- Object Storage -->
 					<div class='form-group col-lg'>
-						<label for='virtual-storage'>Object</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="object">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="object" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="object">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
+						<label for='object-storage'>Object Storage</label>
+						<div class='slider-container'>
+							<input name='object_storage' type='range' min='1' max='100' value='8' class='slider' />
+							<div class='mt-2 number-label-group'>
+								<div class='one number-label active' >1</div>
+								<div class='two number-label' >2</div>
+								<div class='three number-label' >3</div>
+								<div class='four number-label' >4</div>
+								<div class='five number-label' >5</div>
 							</div>
 						</div>
-					</div> <!-- Virtual Storage -->
-					<!-- File -->
-					<div class='form-group col-lg'>
-						<label for='file'>File</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="file">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="file" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="file">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div>
-						</div>
-					</div><!-- File-->
+					</div>
 				</div><!-- d-flex -->
 
-				<!-- <div class='d-flex flex-row justify-content-around'> -->
-				<div class='row'>
-					<div class='form-group col-lg'>
-						<label for='virtual-network'>How proficient are you in Virtual Network?</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="virtual_network">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="virtual_network" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="virtual_network">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div>
-						</div>
-					</div><!-- Virtual Network -->
 
-					<div class='form-group col-lg'>
-						<label for='public'>Public</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="public">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="public" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="public">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div>
-						</div>
-					</div><!-- Public -->
-					<!-- Private -->
-					<div class='form-group col-lg'>
-						<label for='private'>Private</label>
-						<!-- Change the `data-field` of buttons and `name` of input field's for multiple plus minus buttons-->
-						<div class="input-group plus-minus-input">
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="minus" data-field="private">
-									<i class="fa fa-minus" aria-hidden="true"></i>
-								</button>
-							</div>
-							<input class="input-group-field" type="number" name="private" value="0" disabled>
-							<div class="input-group-button">
-								<button type="button" class="button hollow circle" data-quantity="plus" data-field="private">
-									<i class="fa fa-plus" aria-hidden="true"></i>
-								</button>
-							</div>
-						</div>
-					</div><!-- Private -->
-				</div><!-- d-flex -->
+				
 				
 				<div class='d-flex'>
 					<button class='myBtn ml-auto mr-5 my-5 skillSubmitButton'>Submit</button>

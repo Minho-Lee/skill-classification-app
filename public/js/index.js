@@ -42,8 +42,29 @@ $(document).ready(function() {
 		var values = [];
 		for (var i = 1; element; element = $elements[i++]) {
 			// console.log(element);
-			if (element.type === 'number') {
-				values.push({ "skill_name": element.name, "skill_level": element.value });
+			var val = element.value;
+			if (0 < val && val <= 20) 
+			{
+				val = 1;
+			} 
+			else if (20< val && val <= 40) 
+			{
+				val = 2;
+			} 
+			else if (40 < val && val <= 60) 
+			{
+				val = 3;
+			} 
+			else if (60 < val && val <= 80) 
+			{
+				val = 4;
+			} 
+			else 
+			{
+				val = 5;
+			}
+			if (element.type === 'range') {
+				values.push({ "skill_name": element.name, "skill_level": val });
 			}
 		}
 		$.ajax({
@@ -55,5 +76,42 @@ $(document).ready(function() {
 
 			}
 		})
+	})
+
+	// Dealing with slider (range)
+	var $slider = $(".slider");
+
+	// Randomize initial values on sliders
+	// console.log($slider.length);
+	// for (var i = 0; i < $slider.length; i++) {
+	// 	$slider[i].value = Math.random() * 100 + 1;
+	// }
+	
+	$slider.on('input', function() {
+		// console.log($(this).parent());
+		// disable active on all children in slider and reassign 'active' state
+		$(this).parent().find("div").removeClass("active");
+		var curVal = $(this)[0].value;
+		// console.log(curVal);
+		if (0 < curVal && curVal <= 20) 
+		{
+			$(this).parent().find(".one").addClass('active');
+		} 
+		else if (20< curVal && curVal <= 40) 
+		{
+			$(this).parent().find(".two").addClass('active');
+		} 
+		else if (40 < curVal && curVal <= 60) 
+		{
+			$(this).parent().find(".three").addClass('active');
+		} 
+		else if (60 < curVal && curVal <= 80) 
+		{
+			$(this).parent().find(".four").addClass('active');
+		} 
+		else 
+		{
+			$(this).parent().find(".five").addClass('active');
+		}
 	})
 });

@@ -89,7 +89,7 @@ app.get('/depth4', function(req, res) {
 });
 
 app.post('/submitskills', function(req, res) {
-	console.log("jac " + (req.body));
+	console.log(req.body);
 	var i1 = new IndividualEmployee({ id: '0', 'values': req.body });
 	i1.save(function(err) {
 		if (err) throw err;
