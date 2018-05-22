@@ -1,3 +1,7 @@
+// children of children visualization
+//shows the sub-skill within the skill level pertaining to each platform.
+//rating goes from 0% (skills needed), to 100% (skill requirements settled).
+
 var xValues = [];
 var yValues = [];
 var zValues = [];

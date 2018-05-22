@@ -1,14 +1,16 @@
+//shows the person level heatmap view of their respective skill level.
+//rating goes from 1 (beginner) to 5, very proficient.
+
 var xValues = [];
 var yValues = [];
 var zValues = [];
 
-
 $(document).ready(function() {
 
-var colorscaleValue = [
-    [0, '#ff0000'],
-    [1, '#00ff00']
-];
+    var colorscaleValue = [
+        [0, '#ff0000'],
+        [1, '#00ff00']
+    ];
 
     var val = employeeData;
     var total = totalEmployees;
@@ -34,11 +36,11 @@ var colorscaleValue = [
         z: zValues,
         type: 'heatmap',
         colorscale: colorscaleValue,
-        showscale: false
+        showscale: true
     }];
 
     var layout = {
-        title: 'Skill Classification Heatmap',
+        title: 'Individual Level View',
         annotations: [],
         xaxis: {
             ticks: '',

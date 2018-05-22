@@ -1,2 +1,2 @@
-web: ./vendor/initial_startup.rb
+web: node app.js
 

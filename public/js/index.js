@@ -1,3 +1,5 @@
+//base js to handle input and sending data
+
 $(document).ready(function() {
 	// This button will increment the value
 	$('[data-quantity="plus"]').click(function(e) {

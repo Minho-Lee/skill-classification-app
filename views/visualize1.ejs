@@ -3,17 +3,18 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Annotated Heat Map with Plotly.js Charts</title>
-  
-  
-  
-  
-  
+  <title>Individual Level View</title>  
 </head>
 
 <body>
 
   <head>
+
+<div style="margin-left:5rem;">
+<h1>Skill Survey - Individual Level View</h1>
+<p>The Individual Level view shows the person level heatmap view of their respective skillsets.</p>
+<p>The rating goes from 1 (beginner) to 5 (very proficient).</p>
+</div>
 
   <!-- Plotly.js -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -31,8 +32,6 @@
 <script>
   var employeeData = <%- JSON.stringify(employeeData) %>;
   var totalEmployees = <%- JSON.stringify(totalEmployees) %>;
-
-  console.log("totalEmployees " +totalEmployees);
   </script>
     <script  src="js/visualize1.js"></script>
 

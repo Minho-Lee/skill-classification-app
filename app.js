@@ -82,18 +82,16 @@ app.get('/depth4', function(req, res) {
 			if (doc == null || !doc) {
 				res.send("Records do not exist.")
 			} else {
-				res.render('visualize5.ejs', { "employeeData": doc, "totalEmployees": doc2[0].totalEmployees });
+				res.render('visualize6.ejs', { "employeeData": doc, "totalEmployees": doc2[0].totalEmployees });
 			}
 		});
 	});
 });
 
 app.post('/submitskills', function(req, res) {
-	console.log(req.body);
 	var i1 = new IndividualEmployee({ id: '0', 'values': req.body });
 	i1.save(function(err) {
 		if (err) throw err;
-		console.log('User saved successfully!');
 	});
 
 
@@ -108,7 +106,6 @@ app.post('/submitskills', function(req, res) {
 			var a1 = new AggEmployee({ id: '0', 'totalEmployees': "1", 'values': req.body });
 			a1.save(function(err) {
 				if (err) throw err;
-				console.log('agg saved successfully!');
 			});
 
 		} else {
@@ -117,15 +114,9 @@ app.post('/submitskills', function(req, res) {
 
 				var finalResult = [];
 				for (var i = 0; i < doc.values.length; i++) {
-
-					// console.log("1: " + doc.values[i].skill_name);
 					var a = doc.values[i].skill_name;
-					// console.log("2: " + doc.values[i].skill_level);
 					var b = doc.values[i].skill_level;
-
-					// console.log("3: " + req.body[i].skill_name);
 					var c = req.body[i].skill_level;
-					// console.log("4: " + req.body[i].skill_level);
 
 					var d = [];
 					finalResult.push({ "skill_name": doc.values[i].skill_name, "skill_level": parseInt(b) + parseInt(c) });
@@ -150,9 +141,6 @@ app.post('/submitskills', function(req, res) {
 
 
 var appEnv = cfenv.getAppEnv();
-// console.log(appEnv);
-// start server on the specified port and binding host
 app.listen(appEnv.port, '0.0.0.0', function() {
-	// print a message when the server starts listening
 	console.log("server starting on " + appEnv.url);
 });

@@ -3,29 +3,32 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>vis 4</title>
-  
-
-  
-  
-  
+  <title>Platform Subcategory Level View</title>
 </head>
 
 <body>
 
   <head>
 
+
+<div style="margin-left:5rem;">
+<h1>Skill Survey - Platform Subcategory Level View</h1>
+<p>The Platform Level view shows the skill level heatmap view pertaining to each platform: IAAS, Watson etc.</p>
+<p>The rating goes from 0% (skills needed), to 100% (skill requirements settled).</p>
+
+   <select onchange="updateChart(this);">
+  <option value="iaas">Iaas</option> <option value="watson">Watson</option>
+</select>
+</div>
+
+
   <!-- Plotly.js -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
-	  Chat Visualizer - Depth 2
 
-    <select onchange="updateChart(this);">
-  <option value="Watson">Watson</option>
-  <option value="iaas">Iaas</option>
-</select>
+ 
 
 
  <!--  <%= employeeData  %> -->

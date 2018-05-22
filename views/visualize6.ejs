@@ -3,9 +3,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Annotated Heat Map with Plotly.js Charts</title>
-  
-  visualize 2
+  <title>Platform Level View</title>
+
   
   
   
@@ -14,12 +13,22 @@
 <body>
 
   <head>
+<div style="margin-left:5rem;">
+<h1>Skill Survey - Platform Level View</h1>
+<p>The Platform Level view shows the top level heatmap view pertaining to each platform.</p>
+<p>The rating goes from 0% (skills needed), to 100% (skill requirements settled).</p>
 
+</div>
   <!-- Plotly.js -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 
 <body>
+
+
+
+
+
  <!--  <%= employeeData  %> -->
   <div id="myDiv"><!-- Plotly chart will be drawn inside this DIV --></div>
   <script>
@@ -31,10 +40,8 @@
 <script>
   var employeeData = <%- JSON.stringify(employeeData) %>;
   var totalEmployees = <%- JSON.stringify(totalEmployees) %>;
-
-  console.log("totalEmployees " +totalEmployees);
   </script>
-    <script  src="js/visualize2.js"></script>
+    <script  src="js/visualize6.js"></script>
 
 
 

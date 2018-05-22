@@ -1,28 +1,43 @@
+//shows the skill level heatmap view pertaining to each platform: IAAS, Watson etc..
+//rating goes from 0% (skills needed),  to 100% (skill requirements settled).
+
 var xValues = [];
 var yValues = [];
 var zValues = [];
 
-var skills = [{ "skill_name": "watson", "children": [{ "skill_name": "conversation", "children": "" }, { "skill_name": "discovery", "children": "" }] },
-    { "skill_name": "iaas", "children": [{ "skill_name": "virtual_compute", "children": "" }, { "skill_name": "virtual_storage", "children": "" }, { "skill_name": "virtual_network", "children": "" }] }
+  var colorscaleValue = [
+        [0, '#ff0000'],
+        [1, '#00ff00']
+    ];
+
+
+
+function transpose(sourceArray)
+{
+  return sourceArray[0].map(function (_, c) { return sourceArray.map(function (r) { return r[c]; }); });
+}
+
+
+var skills = [{ "skill_name": "iaas", "children": [{ "skill_name": "isolated_virtual_network", "children": "" }, { "skill_name": "virtual_machines", "children": "" }, { "skill_name": "bare_metal", "children": "" }, { "skill_name": "load_balancing", "children": "" }, { "skill_name": "firewalls", "children": "" }, { "skill_name": "block_storage", "children": "" }, { "skill_name": "fire_storage", "children": "" }, { "skill_name": "object_storage", "children": "" }] }
 ];
 
-var skillCaps = {
-    "watson": 12,
-    "coversation": 6,
-    "discovery": 6,
-    "iaas": 12,
-    "virtual_compute": 4,
-    "virtual_storage": 4,
-    "virtual_network": 4
+var skillCaps = { "watson": 10,
+    "iaas": 32,
+    "isolated_virtual_network": 4,
+    "virtual_machines": 4,
+    "bare_metal": 4,
+    "load_balancing": 4,
+    "firewalls":4,
+    "block_storage":4,
+    "fire_storage":4,
+    "object_storage":4
 };
 
-var skillToVisualize = "watson"
-// var skills = ["deep_data_governance","data_analytics_ai", "paas", "iaas", "infrastructure", "deployment", "security_compliance]
+var skillToVisualize = "iaas";
 
 $(document).ready(function() {
     calcValues();
 });
-
 
 function updateChart(element) {
     xValues = [];
@@ -30,7 +45,6 @@ function updateChart(element) {
     zValues = [];
     skillToVisualize = element.value;
     calcValues();
-
 }
 
 
@@ -38,41 +52,44 @@ function calcValues() {
     var skillChildren = [];
     for (var i = 0; i < skills.length; i++) {
         if (skills[i].skill_name == skillToVisualize) {
-            console.log(skills[i]);
-            var a = skills[i].children;
-            for (var j = 0; j < a.length; j++) {
-                skillChildren.push(a[j].skill_name);
+            var subSkills = skills[i].children;
+            for (var j = 0; j < subSkills.length; j++) {
+                skillChildren.push(subSkills[j].skill_name);
             }
             break;
         }
     }
 
-var colorscaleValue = [
-    [0, '#ff0000'],
-    [1, '#00ff00']
-];
-
+  
 
     var originalData = employeeData;
     var total = totalEmployees;
 
     xValues = skillChildren;
 
+  yValues = [0] ;
     for (var i = 0; i < originalData.length; i++) {
-
-        yValues.push(i.toString());
-        var e = []
-
+		var subSkillLevels = [];
         for (var j = 0; j < originalData[i].values.length; j++) {
             if (skillChildren.includes(originalData[i].values[j].skill_name)) {
 
-                var d = originalData[i].values[j].skill_level;
-                console.log(parseInt(d) + " " + parseInt(originalData[i].values[j].skill_cap));
-                e.push(parseInt(d) / parseInt(skillCaps[originalData[i].values[j].skill_name]));
-            }
+                subSkillLevels.push(Math.round(parseInt(originalData[i].values[j].skill_level)/(originalData.length*skillCaps[originalData[i].values[j].skill_name])*100));}
         }
-        zValues.push(e);
+        zValues.push(subSkillLevels);
     }
+
+     zValues = transpose(zValues);
+
+var finalValues= [];
+     for (var i = 0; i < zValues.length; i++) {
+     	var res = 0;
+     	for (var j = 0; j < zValues[i].length; j++) {
+     	res += (zValues[i][j]);
+     	}
+     		finalValues.push (res);
+     }
+
+zValues = [finalValues];
 
     var data = [{
         x: xValues,
@@ -80,7 +97,7 @@ var colorscaleValue = [
         z: zValues,
         type: 'heatmap',
         colorscale: colorscaleValue,
-        showscale: false
+        showscale: true
     }];
 
     var layout = {
@@ -99,6 +116,7 @@ var colorscaleValue = [
         }
     };
 
+
     for (var i = 0; i < yValues.length; i++) {
         for (var j = 0; j < xValues.length; j++) {
             var currentValue = zValues[i][j];
@@ -108,7 +126,7 @@ var colorscaleValue = [
                 yref: 'y1',
                 x: xValues[j],
                 y: yValues[i],
-                text: zValues[i][j],
+                text: zValues[i][j] + "%",
                 font: {
                     family: 'Arial',
                     size: 12,
